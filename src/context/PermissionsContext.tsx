@@ -25,6 +25,9 @@ export const PermissionsProvider = ({ children }: any) => {
     const [permissions, setPermissions] = useState( permissionsinitState );
 
     useEffect(() => {
+        // Fix: Loading infinito en ocaciones
+        // por si al minimizar y entrar a la app entro en un bucle de loading
+        checkLocationPermission();
 
         AppState.addEventListener('change', state => {
 
